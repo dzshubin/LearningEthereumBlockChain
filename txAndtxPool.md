@@ -271,7 +271,7 @@ func (w *worker) commitNewWork(interrupt *int32, noempty bool, timestamp int64) 
 
 
 <br/>
-**Boom! We have got all the connections!!**
+***Boom! We have got all the connections!***
 
 
 
