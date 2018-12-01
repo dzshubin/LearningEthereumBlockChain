@@ -3,7 +3,8 @@
 ## SendTransaction through RPC API
 
 If you are running full node and RPC is on, then you can process RPC call. for instance, we can send a tx through RPC. 
-###func (s *PublicTransactionPoolAPI) SendTransaction(ctx context.Context, args SendTxArgs) (common.Hash, error)
+
+##func (s *PublicTransactionPoolAPI) SendTransaction(ctx context.Context, args SendTxArgs) (common.Hash, error)
 
 below is the code(for simplity, I **ignore** some unnecessary code)
 ```
