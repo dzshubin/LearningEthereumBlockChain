@@ -63,6 +63,7 @@ func (pool *TxPool) add(tx *types.Transaction, local bool) (bool, error)
    + tx.nonce > currentNonce
    + currentBalance > tx.cost
    + tx.gas() > intrGas
+   <br/>
 3. if pool is full {count > pending + queue }
     + if the tx isn't local then check if the tx is underpriced than cheapest tx in the pool
     + otherwise, make room for this tx.
