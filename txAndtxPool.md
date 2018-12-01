@@ -4,7 +4,7 @@
 
 If you are running full node and RPC is on, then you can process RPC call. for instance, we can send a tx through RPC. 
 
-##func (s *PublicTransactionPoolAPI) SendTransaction(ctx context.Context, args SendTxArgs) (common.Hash, error)
+### func (s *PublicTransactionPoolAPI) SendTransaction(ctx context.Context, args SendTxArgs) (common.Hash, error)
 
 below is the code(for simplity, I **ignore** some unnecessary code)
 ```
@@ -23,7 +23,7 @@ Now, we know that you need to sign tx with your private key first, but that isn'
 
 Let's take a look with submitTx .
 
-###SubmitTransaction(ctx context.Context, b Backend, tx *types.Transaction) (common.Hash, error)
+### SubmitTransaction(ctx context.Context, b Backend, tx *types.Transaction) (common.Hash, error)
 
  First, we're going to send Tx, and print information to console.
 
@@ -272,7 +272,7 @@ func (w *worker) commitNewWork(interrupt *int32, noempty bool, timestamp int64) 
 
 
 <br/>
-***Boom! We have got all the connections!***
+***Boom!** **We have got all the connections!***
 
 
 
