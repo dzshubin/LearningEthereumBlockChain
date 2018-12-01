@@ -54,6 +54,7 @@ func (pool *TxPool) add(tx *types.Transaction, local bool) (bool, error)
 1. if we already have this tx in the pool, return false and error
 
 2. validateTx, check if blow rules are meet 
+
    + tx.size() > 32 * 1024
    + tx.value >= 0
    + tx.gas() < block gas limit
@@ -62,12 +63,11 @@ func (pool *TxPool) add(tx *types.Transaction, local bool) (bool, error)
    + tx.nonce > currentNonce
    + currentBalance > tx.cost
    + tx.gas() > intrGas
-<br/>
 3. if pool is full {count > pending + queue }
     + if the tx isn't local then check if the tx is underpriced than cheapest tx in the pool
     + otherwise, make room for this tx.
-         1. discard some tx in the pool.priced, not local underpriced tx
-         2.  remove tx
+         + discard some tx in the pool.priced, not local underpriced tx
+         +  remove tx
              + remove from pool.all
              + if tx is in the pool.pending[addr], ....
              + if tx is in the queue
