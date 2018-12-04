@@ -3,7 +3,8 @@
 ## SendTransaction through RPC API
 
 If you are running full node and RPC is on, then you can process RPC call. for instance, we can send a tx through RPC. 
-###func (s *PublicTransactionPoolAPI) SendTransaction(ctx context.Context, args SendTxArgs) (common.Hash, error)
+
+### func (s *PublicTransactionPoolAPI) SendTransaction(ctx context.Context, args SendTxArgs) (common.Hash, error)
 
 below is the code(for simplity, I **ignore** some unnecessary code)
 ```
@@ -22,7 +23,7 @@ Now, we know that you need to sign tx with your private key first, but that isn'
 
 Let's take a look with submitTx .
 
-###SubmitTransaction(ctx context.Context, b Backend, tx *types.Transaction) (common.Hash, error)
+### SubmitTransaction(ctx context.Context, b Backend, tx *types.Transaction) (common.Hash, error)
 
  First, we're going to send Tx, and print information to console.
 
@@ -53,6 +54,7 @@ func (pool *TxPool) add(tx *types.Transaction, local bool) (bool, error)
 1. if we already have this tx in the pool, return false and error
 
 2. validateTx, check if blow rules are meet 
+
    + tx.size() > 32 * 1024
    + tx.value >= 0
    + tx.gas() < block gas limit
@@ -61,12 +63,12 @@ func (pool *TxPool) add(tx *types.Transaction, local bool) (bool, error)
    + tx.nonce > currentNonce
    + currentBalance > tx.cost
    + tx.gas() > intrGas
-<br/>
+   <br/>
 3. if pool is full {count > pending + queue }
     + if the tx isn't local then check if the tx is underpriced than cheapest tx in the pool
     + otherwise, make room for this tx.
-         1. discard some tx in the pool.priced, not local underpriced tx
-         2.  remove tx
+         + discard some tx in the pool.priced, not local underpriced tx
+         +  remove tx
              + remove from pool.all
              + if tx is in the pool.pending[addr], ....
              + if tx is in the queue
@@ -271,7 +273,7 @@ func (w *worker) commitNewWork(interrupt *int32, noempty bool, timestamp int64) 
 
 
 <br/>
-**Boom! We have got all the connections!!**
+***Boom!** **We have got all the connections!***
 
 
 
